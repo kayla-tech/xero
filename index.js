@@ -34,6 +34,10 @@ Xero.prototype.call = function(method, path, body, callback) {
             content_type = 'application/xml';
         }
     }
+    
+    // Hack for Tracking Categories
+    post_body = post_body.replace(/TrackingCategories/g, 'Tracking');
+    
     var process = function(err, xml, res) {
         if (err) {
             return callback(err);
